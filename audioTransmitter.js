@@ -1,5 +1,4 @@
 var audioTransmitter = (function () {
-
   var audioRecorder
 
   new AudioStream().getRecorder().then(recorder => {
@@ -9,11 +8,15 @@ var audioTransmitter = (function () {
   function start(_this) {
     _this.value = "HABLA";
     audioRecorder.start();
+    _this.parentElement.parentElement.parentElement.style.background = '#141414 url(assets/wave.gif)';
+    _this.parentElement.parentElement.parentElement.style.backgroundRepeat = 'repeat-x';
+    _this.parentElement.parentElement.parentElement.style.backgroundSize = '100% 100%';
   }
 
   function stop(_this) {
     _this.value = "PRESIONA PARA HABLAR";
     audioRecorder.stop();
+    _this.parentElement.parentElement.parentElement.style.background = '#141414';
   }
 
   function transmitAudioData(data) {
